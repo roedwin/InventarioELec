@@ -1,0 +1,88 @@
+﻿@page
+@model WebApp.Areas.Electrodomesticos.Pages.DeleteModel
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "Eliminar Electrodoméstico";
+    Layout = "_Layout";
+}
+
+<section class="content-header">
+    <div class="container-fluid">
+        <div class="row mb-2">
+            <div class="col-sm-6">
+                <h1>@ViewData["Title"]</h1>
+            </div>
+            <div class="col-sm-6">
+                <ol class="breadcrumb float-sm-right">
+                    <li class="breadcrumb-item"><a asp-area="" asp-page="Index">Inicio</a></li>
+                    <li class="breadcrumb-item">Catalogos</li>
+                    <li class="breadcrumb-item">Clientes</li>
+                    <li class="breadcrumb-item active">@ViewData["Title"]</li>
+                </ol>
+            </div>
+        </div>
+        <div class="row mb-2">
+            <div class="col align-self-lg-end">
+                <a asp-area="Electrodomesticos" asp-page="Index" class="btn btn-outline-info float-right"><i class="fas fa-arrow-left"></i> Volver al Listado</a>
+            </div>
+        </div>
+    </div>
+    <!-- /.container-fluid -->
+</section>
+
+<section class="content">
+    <div>
+        <h4>Electrodomestico</h4>
+        <hr />
+        <dl class="row">
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Electrodoméstico.Nombre)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Electrodoméstico.Nombre)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Electrodoméstico.IdCategoria)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Electrodoméstico.IdCategoria)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Electrodoméstico.Cantidad)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Electrodoméstico.Cantidad)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Electrodoméstico.IdSucursal)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Electrodoméstico.IdSucursal)
+            </dd>
+            <dt class="col-sm-2">
+                @Html.DisplayNameFor(model => model.Electrodoméstico.Estado)
+            </dt>
+            <dd class="col-sm-10">
+                @Html.DisplayFor(model => model.Electrodoméstico.Estado)
+            </dd>
+        </dl>
+
+        <form method="post">
+            <input type="hidden" asp-for="Electrodoméstico.Id" />
+            <input type="submit" value="Delete" class="btn btn-danger" /> |
+            <a asp-page="./Index">Back to List</a>
+        </form>
+    </div>
+
+</section>
+ 
+@section Scripts{
+    <script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+    <script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+    <script type="text/javascript" language="javscript">
+        $.validator.unobtrusive.parse(document);
+        $(document).ready(function () {
+            $('#a-electrodomestico').addClass('active');
+        });
+    </script>
+}
